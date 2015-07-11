@@ -1,0 +1,15 @@
+glitchme:
+=========
+
+  glitchme is a small utility that will introduce random noise to a stream of
+data.  This can be used to create glitch art or to just mess things up -- use
+your imagination.
+
+  Usage: glitchme <random factor>
+         <random factor> must be a floating-point number between 0.0 and 1.0,
+            and it corresponds to the approximate percentage of noise you want
+            introduced (0.0 is minimum, 1.0 is maximum).
+
+  Usage examples:
+    $ glitchme 0.00001 < someimage.jpg > corrupted_image.jpg
+    $ cat file.txt | glitchme 0.01
