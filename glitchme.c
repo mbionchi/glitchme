@@ -41,7 +41,6 @@ int main(int argc, char **argv) {
             }
             nr = fread(&ch, sizeof(int), 1, stdin);
         }
-        fprintf(stderr, "%u hits\n", cnt);
         return 0;
     }
 }
