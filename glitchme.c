@@ -22,13 +22,20 @@
 #include <limits.h>
 
 int main(int argc, char **argv) {
-    if (argc != 2) {
+    if (argc < 2) {
+        fprintf(stderr, "usage: glitchme <rand factor> <seed (optional int)>\n");
         return 1;
     } else {
         double fl = atof(argv[1]);
         unsigned int rf = round((fl<0.0?0.0:(fl>1.0?1.0:fl))*UINT_MAX), r, cnt=0;
         int nr, nw, ch;
-        srand((unsigned int)time(NULL));
+        int seed;
+        if (argc == 3) {
+            seed = atoi(argv[2]);
+        } else {
+            seed = time(NULL);
+        }
+        srand((unsigned int)seed);
         nr = fread(&ch, sizeof(int), 1, stdin);
         while (nr != 0) {
             r = (unsigned int)rand();
